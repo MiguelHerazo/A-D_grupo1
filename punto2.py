@@ -6,7 +6,7 @@ def sum_digits(number):
         number //= 10        # Complejidad Espacial: O(1)
     return sum
 
-                            # Complejidad Temporal: O(n), donde n es la cantidad de dígitos en el número de entrada.
+                             #Big O: O(n), donde n es la cantidad de dígitos en el número de entrada.
 # Ejemplo
 number = 12345
 result = sum_digits(number)
