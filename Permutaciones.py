@@ -51,8 +51,8 @@ import math
 def permutaciones_con_repeticion(m, n):
     return m ** n
 
-def permutaciones_sin_repeticion(m, n):
-    return math.factorial(m) // math.factorial(m - n)
+def permutaciones_sin_repeticion(m):
+    return math.factorial(m)
 
 def main():
     m = int(input("Ingrese el valor de 'm': "))
