@@ -1,5 +1,6 @@
 from itertools import permutations
 
+
 def obtener_permutaciones(cadena):
     if not isinstance(cadena, str):
         print("La entrada debe ser una cadena de caracteres")
@@ -14,11 +15,13 @@ def obtener_permutaciones(cadena):
         return []
 
     lista_permutaciones = list(permutations(cadena))
+    lista_sin_duplicados = list(set(lista_permutaciones))
 
-    for permutacion in lista_permutaciones:
+    for permutacion in lista_sin_duplicados:
         print(''.join(permutacion))
 
-    return lista_permutaciones
+    return lista_sin_duplicados
+
 
 def main():
     try:
