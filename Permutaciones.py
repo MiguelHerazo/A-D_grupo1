@@ -1,37 +1,45 @@
-from itertools import permutations
+from itertools import permutations # IMPORTACIÓN DE MODULOS: Complejidad algorítmica: O(1), # Complejidad espacial: O(1)
+from math import factorial
 
+def validar_cadena(cadena): # Complejidad algorítmica: O(n), Complejidad espacial: O(1)
+    if not isinstance(cadena, str):  # O(1)
+        raise TypeError("La entrada debe ser una cadena de caracteres")  # O(1)
+    if len(cadena) == 0:  # O(1)
+        raise ValueError("La cadena no puede estar vacía")  # O(1)
+    if not all(caracter.isalnum() for caracter in cadena):  # O(n)
+        raise ValueError("La cadena solo puede contener caracteres alfanuméricos")  # O(1)
 
-def obtener_permutaciones(cadena):
-    if not isinstance(cadena, str):
-        print("La entrada debe ser una cadena de caracteres")
-        return []
+def obtener_permutaciones(cadena, con_repeticion=False): # Complejidad algorítmica: O(n!), Complejidad espacial: O(n!)
+    validar_cadena(cadena)  # O(n)
 
-    if len(cadena) == 0:
-        print("La cadena no puede estar vacía")
-        return []
+    if con_repeticion:  # O(1)
+        lista_permutaciones = list(permutations(cadena))  # O(n!)
+        for permutacion in lista_permutaciones:  # O(n!)
+            print(''.join(permutacion))  # O(n!)
+        print("Se generaron {} permutaciones de la cadena '{}'.".format(len(lista_permutaciones), cadena))  # O(1)
+        return lista_permutaciones  # O(n!)
+    else:
+        elementos_unicos = len(set(cadena))  # O(n)
+        resultado = factorial(elementos_unicos)  # O(n!)
+        print("El resultado de las permutaciones sin repetición es:", resultado)  # O(1)
+        return resultado  # O(1)
 
-    if not cadena.isalnum():
-        print("La cadena solo puede contener caracteres alfanuméricos")
-        return []
-
-    lista_permutaciones = list(permutations(cadena))
-    lista_sin_duplicados = list(set(lista_permutaciones))
-
-    for permutacion in lista_sin_duplicados:
-        print(''.join(permutacion))
-
-    return lista_sin_duplicados
-
-
-def main():
+def main(): # Complejidad algorítmica: O(n!), Complejidad espacial: O(n!)
     try:
-        cadena = input("Ingrese una cadena de caracteres: ")
-        permutaciones = obtener_permutaciones(cadena)
-        if permutaciones:
-            print("Se generaron {} permutaciones de la cadena '{}'.".format(len(permutaciones), cadena))
-    except KeyboardInterrupt:
-        print("\nPrograma interrumpido por el usuario.")
+        opcion = input("¿Desea calcular permutaciones con repetición (c) o sin repetición (s)? ")  # O(1)
+        if opcion == 'c' or opcion == 's':  # O(1)
+            cadena = input("Ingrese una cadena de caracteres: ")  # O(n)
+            try:
+                if opcion == 'c':  # O(1)
+                    obtener_permutaciones(cadena, True)  # O(n!)
+                else:
+                    obtener_permutaciones(cadena)  # O(n!)
+            except (TypeError, ValueError) as error:  # O(1)
+                print(error)  # O(1)
+        else:
+            print("Debes seleccionar una opción valida.")  # O(1)
+    except KeyboardInterrupt:  # O(1)
+        print("\nPrograma interrumpido por el usuario.")  # O(1)
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__":  # O(1)
+    main()  # O(n!)
