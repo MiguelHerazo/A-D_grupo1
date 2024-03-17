@@ -1,44 +1,35 @@
-import itertools
+import math
 
+def combinaciones_con_repeticion(m, n):
+    return math.comb(m + n - 1, n)
 
-def generar_combinaciones(elementos, con_repeticion=False):
-    todas_combinaciones = []  # Lista para almacenar todas las combinaciones
-
-    # Verificar si se permiten repeticiones
-    if con_repeticion:
-        # Generar combinaciones con repetición utilizando itertools.product
-        for r in range(1, len(elementos) + 1):
-            combinaciones = itertools.product(elementos, repeat=r)
-            todas_combinaciones.extend(combinaciones)
-    else:
-        # Generar combinaciones ordinarias utilizando itertools.combinations
-        for r in range(1, len(elementos) + 1):
-            combinaciones = itertools.combinations(elementos, r)
-            todas_combinaciones.extend(combinaciones)
-
-    return todas_combinaciones
-
+def combinaciones_sin_repeticion(m, n):
+    return math.comb(m, n)
 
 def main():
-    try:
-        # Solicitar al usuario los elementos y si se permiten repeticiones
-        elementos = input("Ingrese los elementos separados por espacios: ").split()
-        permitir_repeticion = input("¿Permitir repeticiones? (s/n): ").lower() == 's'
+    m = int(input("Ingrese el valor de 'm': "))
+    n = int(input("Ingrese el valor de 'n': "))
 
-        # Generar las combinaciones con los elementos proporcionados
-        resultado = generar_combinaciones(elementos, permitir_repeticion)
+    if m <= 0 or n <= 0:
+        print("Los valores de 'm' y 'n' deben ser mayores que cero.")
+        return
 
-        # Imprimir las combinaciones generadas
-        print("Combinaciones generadas:")
-        for combinacion in resultado:
-            print(combinacion)
+    print("\nSeleccione el tipo de combinación:")
+    print("1. Con repeticiones")
+    print("2. Sin repeticiones")
+    opcion = int(input("Ingrese su elección (1 o 2): "))
 
-        # Imprimir el número total de combinaciones generadas
-        print("\nSe generaron {} combinaciones.".format(len(resultado)))
-
-    except KeyboardInterrupt:
-        print("\nPrograma interrumpido por el usuario.")
-
+    if opcion == 1:
+        resultado = combinaciones_con_repeticion(m, n)
+        print(f"El número de combinaciones con repeticiones es: {resultado}")
+    elif opcion == 2:
+        if m < n:
+            print("No se pueden seleccionar más elementos de los que hay disponibles.")
+            return
+        resultado = combinaciones_sin_repeticion(m, n)
+        print(f"El número de combinaciones sin repeticiones es: {resultado}")
+    else:
+        print("Opción no válida. Por favor, seleccione 1 o 2.")
 
 if __name__ == "__main__":
     main()
