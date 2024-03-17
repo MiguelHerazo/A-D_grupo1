@@ -48,9 +48,6 @@ if __name__ == "__main__":  # O(1)
 #PERMUTACIONES SOLAMENTE NUMERICAS 
 import math
 
-def permutaciones_con_repeticion(m, n):
-    return m ** n
-
 def permutaciones_sin_repeticion(m):
     return math.factorial(m)
 
