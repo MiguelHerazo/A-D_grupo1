@@ -6,7 +6,7 @@ from ProyectoCombinatoria.Permutaciones import permutacion_con_repeticion, permu
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 import math
 
-class AplicacionPrincipiosDeConteoYCombinatoria(QWidget): #0(1)
+class App(QWidget): #0(1)
     def __init__(self): #0(1)
         super().__init__() #0(1)
         self.setWindowTitle("Calculadora de Permutaciones, Combinaciones, Variaciones, Conteo Aditivo y Conteo Multiplicativo") #0(1)
@@ -102,7 +102,7 @@ class AplicacionPrincipiosDeConteoYCombinatoria(QWidget): #0(1)
 
 if __name__ == '__main__': #0(1)
     app = QApplication(sys.argv) #0(1)
-    ventana = AplicacionPrincipiosDeConteoYCombinatoria() #0(1)
+    ventana = App() #0(1)
     ventana.show() #0(1)
     sys.exit(app.exec_()) #0(1)
 
