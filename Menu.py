@@ -2,110 +2,112 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 import math
 
-class AplicacionPrincipiosDeConteoYCombinatoria(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Calculadora de Permutaciones, Combinaciones, Variaciones, Conteo Aditivo y Conteo Multiplicativo")
-        self.inicializar_interfaz()
+class AplicacionPrincipiosDeConteoYCombinatoria(QWidget): #0(1)
+    def __init__(self): #0(1)
+        super().__init__() #0(1)
+        self.setWindowTitle("Calculadora de Permutaciones, Combinaciones, Variaciones, Conteo Aditivo y Conteo Multiplicativo") #0(1)
+        self.inicializar_interfaz() #0(1)
 
-    def inicializar_interfaz(self):
-        layout = QVBoxLayout()
-        self.setStyleSheet("background-color: skyblue") 
+    def inicializar_interfaz(self): #0(1)
+        layout = QVBoxLayout() #0(1)
+        self.setStyleSheet("background-color: skyblue") #0(1)
 
-        self.label_desc = QLabel("Introduzca el tiipo de Operacion:")
-        self.label_desc.setStyleSheet("color: black ") 
-        layout.addWidget(self.label_desc)
-        self.entry_desc = QLineEdit()
-        layout.addWidget(self.entry_desc)
+        self.label_desc = QLabel("Introduzca el tiipo de Operacion:") #0(1)
+        self.label_desc.setStyleSheet("color: black ")  #0(1)
+        layout.addWidget(self.label_desc) #0(1)
+        self.entry_desc = QLineEdit() #0(1)
+        layout.addWidget(self.entry_desc) #0(1)
 
-        self.label_parametros = QLabel("Parametros:")
-        self.label_parametros.setStyleSheet("color: black")  
-        layout.addWidget(self.label_parametros)
+        self.label_parametros = QLabel("Parametros:") #0(1)
+        self.label_parametros.setStyleSheet("color: black")  #0(1)
+        layout.addWidget(self.label_parametros) #0(1)
 
-        self.label_m = QLabel("m:")
-        self.label_m.setStyleSheet("color: black") 
-        layout.addWidget(self.label_m)
-        self.entry_m = QLineEdit()
-        layout.addWidget(self.entry_m)
+        self.label_m = QLabel("m:") #0(1)
+        self.label_m.setStyleSheet("color: black")  #0(1)
+        layout.addWidget(self.label_m) #0(1)
+        self.entry_m = QLineEdit() #0(1)
+        layout.addWidget(self.entry_m) #0(1)
 
-        self.label_n = QLabel("n:")
-        self.label_n.setStyleSheet("color: black")  
-        layout.addWidget(self.label_n)
-        self.entry_n = QLineEdit()
-        layout.addWidget(self.entry_n)
-
-        
-        self.boton_resolver = QPushButton("Resolver")
-        self.boton_resolver.setStyleSheet("color: red") 
-        self.boton_resolver.clicked.connect(self.resolver)
-        layout.addWidget(self.boton_resolver)
-
-        self.setLayout(layout)
-
-    def resolver(self):
-        descripcion = self.entry_desc.text()
-        m = int(self.entry_m.text())
-        n = int(self.entry_n.text())
+        self.label_n = QLabel("n:") #0(1)
+        self.label_n.setStyleSheet("color: black")  #0(1)
+        layout.addWidget(self.label_n) #0(1)
+        self.entry_n = QLineEdit() #0(1)
+        layout.addWidget(self.entry_n) #0(1)
 
         
-        resultado = self.calcular(descripcion, m, n)
+        self.boton_resolver = QPushButton("Resolver") #0(1)
+        self.boton_resolver.setStyleSheet("color: red")  #0(1)
+        self.boton_resolver.clicked.connect(self.resolver) #0(1)
+        layout.addWidget(self.boton_resolver) #0(1)
 
-        QMessageBox.information(self, "Resultado", f"Resultado: {resultado}")
+        self.setLayout(layout) #0(1)
 
-    def calcular(self, descripcion, m, n):
-        if descripcion.lower() == "combinacion con repeticion":
-            resultado = self.combinacion_con_repeticion(m, n)
-        elif descripcion.lower() == "combinacion sin repeticion":
-            resultado = self.combinacion_sin_repeticion(m, n)
-        elif descripcion.lower() == "variacion con repeticion":
-            resultado = self.variacion_con_repeticion(m, n)
-        elif descripcion.lower() == "variacion sin repeticion":
-            resultado = self.variacion_sin_repeticion(m, n)
-        elif descripcion.lower() == "permutacion con repeticion":
-            resultado = self.permutacion_con_repeticion(m, n)
-        elif descripcion.lower() == "permutacion sin repeticion":
-            resultado = self.permutacion_sin_repeticion(m)
-        elif descripcion.lower() == "principio de conteo aditivo":
-            resultado = self.principio_conteo_aditivo(m, n)
-        elif descripcion.lower() == "principio de conteo multiplicativo":
-            resultado = self.principio_conteo_multiplicativo(m, n)
+    def resolver(self): #0(1)
+        descripcion = self.entry_desc.text() #0(1)
+        m = int(self.entry_m.text()) #0(1)
+        n = int(self.entry_n.text()) #0(1)
 
-        return resultado
+        
+        resultado = self.calcular(descripcion, m, n) #0(1)
 
-    def combinacion_con_repeticion(self, m, n):
-        resultado = math.comb(m + n - 1, n)
-        return resultado
+        QMessageBox.information(self, "Resultado", f"Resultado: {resultado}") #0(1)
 
-    def combinacion_sin_repeticion(self, m, n):
-        resultado = math.comb(m, n)
-        return resultado
+    def calcular(self, descripcion, m, n): #0(1)
+        if descripcion.lower() == "combinacion con repeticion": #0(1)
+            resultado = self.combinacion_con_repeticion(m, n) #0(1)
+        elif descripcion.lower() == "combinacion sin repeticion": #0(1)
+            resultado = self.combinacion_sin_repeticion(m, n) #0(1)
+        elif descripcion.lower() == "variacion con repeticion": #0(1)
+            resultado = self.variacion_con_repeticion(m, n) #0(1)
+        elif descripcion.lower() == "variacion sin repeticion": #0(1)
+            resultado = self.variacion_sin_repeticion(m, n) #0(1)
+        elif descripcion.lower() == "permutacion con repeticion": #0(1)
+            resultado = self.permutacion_con_repeticion(m, n) #0(1)
+        elif descripcion.lower() == "permutacion sin repeticion": #0(1)
+            resultado = self.permutacion_sin_repeticion(m) #0(1)
+        elif descripcion.lower() == "principio de conteo aditivo": #0(1)
+            resultado = self.principio_conteo_aditivo(m, n) #0(1)
+        elif descripcion.lower() == "principio de conteo multiplicativo": #0(1)
+            resultado = self.principio_conteo_multiplicativo(m, n) #0(1)
 
-    def variacion_con_repeticion(self, m, n):
-        resultado = m ** n
-        return resultado
+        return resultado #0(1)
 
-    def variacion_sin_repeticion(self, m, n):
-        resultado = math.factorial(m) / math.factorial(m - n)
-        return resultado
+    def combinacion_con_repeticion(self, m, n): #0(1)
+        resultado = math.comb(m + n - 1, n) #0(1)
+        return resultado #0(1)
 
-    def permutacion_con_repeticion(self, m, n):
-        factorial_suma_repeticiones = math.factorial(m + n - 1)
-        factorial_m = math.factorial(m)
-        resultado = factorial_suma_repeticiones // factorial_m
-        return resultado
+    def combinacion_sin_repeticion(self, m, n): #0(1)
+        resultado = math.comb(m, n) #0(1)
+        return resultado #0(1)
 
-    def permutacion_sin_repeticion(self, m):
-        resultado = math.factorial(m)
-        return resultado
+    def variacion_con_repeticion(self, m, n): #0(1)
+        resultado = m ** n #0(1)
+        return resultado #0(1)
 
-    def principio_conteo_aditivo(self, m, n):
-        return m + n
+    def variacion_sin_repeticion(self, m, n): #0(1)
+        resultado = math.factorial(m) / math.factorial(m - n) #0(1)
+        return resultado #0(1)
 
-    def principio_conteo_multiplicativo(self, m, n):
-        return m * n
+    def permutacion_con_repeticion(self, m, n): #0(1)
+        factorial_suma_repeticiones = math.factorial(m + n - 1) #0(1)
+        factorial_m = math.factorial(m) #0(1)
+        resultado = factorial_suma_repeticiones // factorial_m #0(1)
+        return resultado #0(1)
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ventana = AplicacionPrincipiosDeConteoYCombinatoria()
-    ventana.show()
-    sys.exit(app.exec_())
+    def permutacion_sin_repeticion(self, m): #0(1)
+        resultado = math.factorial(m) #0(1)
+        return resultado #0(1)
+
+    def principio_conteo_aditivo(self, m, n): #0(1)
+        return m + n #0(1)
+
+    def principio_conteo_multiplicativo(self, m, n): #0(1)
+        return m * n #0(1)
+
+if __name__ == '__main__': #0(1)
+    app = QApplication(sys.argv) #0(1)
+    ventana = AplicacionPrincipiosDeConteoYCombinatoria() #0(1)
+    ventana.show() #0(1)
+    sys.exit(app.exec_()) #0(1)
+
+# Complejidad espacial y temporal = 0(1)
