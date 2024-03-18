@@ -24,57 +24,17 @@ def obtener_permutaciones(cadena, con_repeticion=False): # Complejidad algorítm
         print("El resultado de las permutaciones sin repetición es:", resultado)  # O(1)
         return resultado  # O(1)
 
-def main(): # Complejidad algorítmica: O(n!), Complejidad espacial: O(n!)
-    try:
-        opcion = input("¿Desea calcular permutaciones con repetición (c) o sin repetición (s)? ")  # O(1)
-        if opcion == 'c' or opcion == 's':  # O(1)
-            cadena = input("Ingrese una cadena de caracteres: ")  # O(n)
-            try:
-                if opcion == 'c':  # O(1)
-                    obtener_permutaciones(cadena, True)  # O(n!)
-                else:
-                    obtener_permutaciones(cadena)  # O(n!)
-            except (TypeError, ValueError) as error:  # O(1)
-                print(error)  # O(1)
-        else:
-            print("Debes seleccionar una opción valida.")  # O(1)
-    except KeyboardInterrupt:  # O(1)
-        print("\nPrograma interrumpido por el usuario.")  # O(1)
-
-if __name__ == "__main__":  # O(1)
-    main()  # O(n!)
 
 
 #PERMUTACIONES SOLAMENTE NUMERICAS 
 import math
+def permutacion_con_repeticion(self, m, n):  # 0(1)
+    factorial_suma_repeticiones = math.factorial(m + n - 1)  # 0(1)
+    factorial_m = math.factorial(m)  # 0(1)
+    resultado = factorial_suma_repeticiones // factorial_m  # 0(1)
+    return resultado  # 0(1)
 
-def permutaciones_sin_repeticion(m):
-    return math.factorial(m)
 
-def main():
-    m = int(input("Ingrese el valor de 'm': "))
-    n = int(input("Ingrese el valor de 'n': "))
-
-    if m <= 0 or n <= 0:
-        print("Los valores de 'm' y 'n' deben ser mayores que cero.")
-        return
-
-    print("\nSeleccione el tipo de permutación:")
-    print("1. Con repeticiones")
-    print("2. Sin repeticiones")
-    opcion = int(input("Ingrese su elección (1 o 2): "))
-
-    if opcion == 1:
-        resultado = permutaciones_con_repeticion(m, n)
-        print(f"El número de permutaciones con repeticiones es: {resultado}")
-    elif opcion == 2:
-        if m < n:
-            print("No se pueden seleccionar más elementos de los que hay disponibles.")
-            return
-        resultado = permutaciones_sin_repeticion(m, n)
-        print(f"El número de permutaciones sin repeticiones es: {resultado}")
-    else:
-        print("Opción no válida. Por favor, seleccione 1 o 2.")
-
-if __name__ == "__main__":
-    main()
+def permutacion_sin_repeticion(self, m):  # 0(1)
+    resultado = math.factorial(m)  # 0(1)
+    return resultado  # 0(1)
