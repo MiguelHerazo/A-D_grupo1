@@ -46,15 +46,20 @@ class App(QWidget): #0(1)
 
         self.setLayout(layout) #0(1)
 
-    def resolver(self): #0(1)
-        descripcion = self.entry_desc.text() #0(1)
-        m = int(self.entry_m.text()) #0(1)
-        n = int(self.entry_n.text()) #0(1)
+    def resolver(self):  # 0(1)
+        descripcion = self.entry_desc.text()  # 0(1)
+        m_text = self.entry_m.text()  # 0(1)
+        n_text = self.entry_n.text()  # 0(1)
 
-        
-        resultado = self.calcular(descripcion, m, n) #0(1)
+        try:
+            m = int(m_text)
+            n = int(n_text)
+        except ValueError:
+            QMessageBox.warning(self, "Error", "Los valores de m y n deben ser números enteros.")
+            return
+        resultado = self.calcular(descripcion, m, n)  # 0(1)
 
-        QMessageBox.information(self, "Resultado", f"Resultado: {resultado}") #0(1)
+        QMessageBox.information(self, "Resultado", f"Resultado: {resultado}")  # 0(1)
 
     def calcular(self, descripcion, m, n): #0(1)
         if descripcion.lower() == "combinacion con repeticion": #0(1)
@@ -68,7 +73,7 @@ class App(QWidget): #0(1)
         elif descripcion.lower() == "permutacion con repeticion": #0(1)
             resultado = self.p_con_repeticion(m, n) #0(1)
         elif descripcion.lower() == "permutacion sin repeticion": #0(1)
-            resultado = self.p_sin_repeticion(m) #0(1)
+            resultado = self.p_sin_repeticion(m, n=1) #0(1)
         elif descripcion.lower() == "principio de conteo aditivo": #0(1)
             resultado = self.conteo_aditivo(m, n) #0(1)
         elif descripcion.lower() == "principio de conteo multiplicativo": #0(1)
@@ -77,27 +82,70 @@ class App(QWidget): #0(1)
         return resultado #0(1)
 
     def c_con_repeticion(self, m, n): #0(1)
-        return combinaciones_con_repeticion(m,n) #0(1)
+        if n > m:
+            return "El numero n no puede ser mayor que m"
+        if n <= 0 or m <=0:
+            return "el numero no puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
+        else:
+            return combinaciones_con_repeticion(m,n) #0(1)
 
     def c_sin_repeticion(self, m, n): #0(1)
+        if n > m:
+            return "El numero n no puede ser mayor que m"
+        if n <= 0 or m <= 0:
+            return "el numero no puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
         return combinaciones_sin_repeticion(m,n) #0(1)
 
     def v_con_repeticion(self, m, n): #0(1)
+        if n > m:
+            return "El numero n no puede ser mayor que m"
+        if n <= 0 or m <= 0:
+            return "el numero no puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
         return variaciones_con_repeticion(m,n)
 
     def v_sin_repeticion(self, m, n): #0(1)
+        if n > m:
+            return "El numero n no puede ser mayor que m"
+        if n <= 0 or m <= 0:
+            return "el numero no puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
         return variaciones_sin_repeticion(m,n) #0(1)
 
     def p_con_repeticion(self, m, n): #0(1)
+        if n > m:
+            return "El numero n no puede ser mayor que m"
+        if n <= 0 or m <= 0:
+            return "el numero no puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
         return permutacion_con_repeticion(m,n) #0(1)
 
-    def p_sin_repeticion(self, m): #0(1)
-        return permutacion_sin_repeticion(m) #0(1)
+    def p_sin_repeticion(self, m, n): #0(1)
+        if m <= 0:
+            return "el numero no puede ser negativo o cero"
+        if m > 200:
+            return "el numero no puede ser mayor a 200"
+        return permutacion_sin_repeticion(m), "recuerde que solo se toma m" #0(1)
 
     def conteo_aditivo(self, m, n): #0(1)
+        if n <= 0 or m <= 0:
+            return "Ningun numero  puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
         return principio_conteo_aditivo(m,n)
 
     def conteo_multiplicativo(self, m, n): #0(1)
+        if n <= 0 or m <= 0:
+            return "Ningun numero  puede ser negativo o cero"
+        if n > 200 or m > 200:
+            return "el numero no puede ser mayor a 200"
         return principio_conteo_multiplicativo(m,n) #0(1)
 
 if __name__ == '__main__': #0(1)
