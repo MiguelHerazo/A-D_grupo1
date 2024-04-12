@@ -6,6 +6,7 @@
 
 #Punto 1 (1.5): Resolver la siguiente relación de recurrencia entregando la recurrencia sin recursividad y su ecuación particular según las condiciones de frontera:n>=4 donde, 𝑎0 = # 𝑑𝑒 𝑙𝑒𝑡𝑟𝑎𝑠 𝑑𝑒 𝑠𝑢 𝑝𝑟𝑖𝑚𝑒𝑟 𝑛𝑜𝑚𝑏𝑟𝑒 y 𝑎1 = # 𝑑𝑒 𝑙𝑒𝑡𝑟𝑎𝑠 𝑑𝑒 𝑠𝑢 𝑝𝑟𝑖𝑚𝑒𝑟 𝑎𝑝𝑒𝑙𝑙𝑖𝑑𝑜 hallar el termino 1500 de la sucesión.
 
+#ESTE PUNTO ESTÁ RESUELTO A MANO Y SE ENVIO EN FORMATO PDF EN UVIRTUAL
 
  #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
