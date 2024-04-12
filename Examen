@@ -1,0 +1,27 @@
+def ValorersRepetidos(lst, index=0, duplicados=set()):
+   
+    if index >= len(lst) - 1:
+        return duplicados
+    
+
+    elemento_actual = lst[index]
+    
+    if elemento_actual in lst[index + 1:]:
+        duplicados.add(elemento_actual)
+    
+   
+    return ValorersRepetidos(lst, index + 1, duplicados)
+
+
+lista = [1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 5]
+repetidos = ValorersRepetidos(lista)
+print("Valores repetidos en la lista:", repetidos)
+
+
+
+  
+
+
+
+
+
