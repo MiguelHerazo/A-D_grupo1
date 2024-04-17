@@ -2,19 +2,16 @@
 def geometric_progression_term(a, r, n):
     if n <= 0:
         raise ValueError("La posición n debe ser un entero positivo.")
-    # Calcular el término en la posición n
     term_n = a * (r ** (n - 1))
     return term_n
 #RECURSIVO
 def geometric_progression_term_r(a, r, n):
     if n <= 0:
         raise ValueError("La posición n debe ser un entero positivo.")
-    # Calcular el término en la posición n
     term_n = a * (r ** (n - 1))
     return term_n
     
 def find_ratio():
-    # Resolver la ecuación 4r - 5 = 0 para encontrar r
     r = 5 / 4
     return r
 
@@ -39,14 +36,14 @@ def interpolated_term(a, r, n):
     return interpolated_term
 
 try:
-    # Definir el primer término y la posición n
+
     a = 1  # Primer término
     n = 1245.123  # Posición
 
-    # Encontrar la razón r
+
     r = find_ratio()
 
-    # Calcular el término en la posición n
+
     term_n = interpolated_term(a, r, n)
     print("El término en la posición", n, "es:", term_n)
 
