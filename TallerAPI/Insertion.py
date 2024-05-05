@@ -1,13 +1,11 @@
-def insertion_sort(arr):
-    # Iterar a través de la lista, comenzando desde el segundo elemento
-    for i in range(1, len(arr)):
-        # Guardar el valor actual para comparación
+def insertion_sort(arr, columna):
+    n = len(arr)
+    for i in range(1, n):
         key = arr[i]
-        # Inicializar un índice para comparar con el elemento anterior
         j = i - 1
-        # Mover los elementos mayores que el valor actual una posición hacia adelante
-        while j >= 0 and arr[j] > key:
+        while j >= 0 and arr[j][columna] > key[columna]:
             arr[j + 1] = arr[j]
             j -= 1
-        # Colocar el valor actual en su posición correcta en la lista ordenada
         arr[j + 1] = key
+
+    return arr
