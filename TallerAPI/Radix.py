@@ -20,6 +20,7 @@ def counting_sort_radix(arr, exp, columna):
     for i in range(n):
         arr[i] = output[i]
 
+#metodo radix
 def radix_sort(arr, columna):
     max_val = max(arr, key=lambda x: x[columna])[columna]
 

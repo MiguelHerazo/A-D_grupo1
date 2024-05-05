@@ -20,7 +20,7 @@ def heap_sort(arr, columna):
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i, columna)
 
-    # Extrae elementos uno por uno
+
     for i in range(n - 1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]  # Intercambia los elementos
         heapify(arr, i, 0, columna)
