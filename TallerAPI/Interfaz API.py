@@ -13,11 +13,11 @@ class SortingAlgorithms:  # O(1)
         for i in range(n - 1):  # O(n^2)
             for j in range(0, n - i - 1):  # O(n)
                 if reverse:  # O(1)
-                    if arr[j] < arr[j + 1]:  # O(1)
-                        arr[j], arr[j + 1] = arr[j + 1], arr[j]  # O(1)
+                    if arr[j] < arr[j + 1]:  # O(n)
+                        arr[j], arr[j + 1] = arr[j + 1], arr[j]  # O(n)
                 else:  # O(1)
-                    if arr[j] > arr[j + 1]:  # O(1)
-                        arr[j], arr[j + 1] = arr[j + 1], arr[j]  # O(1)
+                    if arr[j] > arr[j + 1]:  # O(n)
+                        arr[j], arr[j + 1] = arr[j + 1], arr[j]  # O(n)
         return arr  # O(1)
 
     @staticmethod
@@ -325,4 +325,4 @@ if __name__ == "__main__": # O(1)
     sys.exit(app.exec_()) # O(1)
 
 
-#big O = mejor caso: 0(1)- peor caso 0(nlogn)
+# big O = mejor caso: 0(1)- peor caso 0(nlogn)
