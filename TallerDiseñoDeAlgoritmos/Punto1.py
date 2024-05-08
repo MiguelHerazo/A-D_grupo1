@@ -16,9 +16,9 @@ def greedy_path(matrix, x, y):
         return [(x, y)] + greedy_path(matrix, x, y + 1)
 
 matrix = [
-    [1, 3, 1],
-    [1, 9, 1],
-    [4, 2, 1]
+    [1, 3, -1],
+    [1, -9, 1],
+    [-4, 2, 1]
 ]
 
 path = greedy_path(matrix, 0, 0)
