@@ -1,0 +1,14 @@
+def factorial(numero, cache = []):
+
+  if numero == 1 or numero == 0:
+    cache.append(numero)
+    return numero
+  
+  if len(cache) >= numero:
+    return cache[numero-1]
+  
+  else:
+    cache.append(numero*factorial(numero-1,cache))
+    return cache[numero-1]
+  
+factorial(5)
